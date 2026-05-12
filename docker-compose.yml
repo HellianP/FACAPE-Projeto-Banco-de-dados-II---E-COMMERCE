@@ -1,0 +1,36 @@
+services:
+  firebird:
+    image: firebirdsql/firebird:5
+    container_name: firebird-projetobd2
+    restart: unless-stopped
+    ports:
+      - "3050:3050"
+    environment:
+      # Senha do usuario SYSDBA
+      FIREBIRD_ROOT_PASSWORD: ${FIREBIRD_ROOT_PASSWORD}
+      # Banco criado automaticamente no primeiro boot
+      FIREBIRD_DATABASE: ${FIREBIRD_DATABASE}
+      FIREBIRD_DATABASE_PAGE_SIZE: "8192"
+      FIREBIRD_DATABASE_DEFAULT_CHARSET: "UTF8"
+      # Usuario nao-admin para a aplicacao
+      FIREBIRD_USER: ${FIREBIRD_USER}
+      FIREBIRD_PASSWORD: ${FIREBIRD_PASSWORD}
+      TZ: "America/Fortaleza"
+    volumes:
+      # Persistencia dos arquivos .fdb entre reinicios
+      - firebird_data:/var/lib/firebird/data
+      # Scripts .sql executados na primeira subida (em ordem alfabetica)
+      - ./init:/docker-entrypoint-initdb.d:ro
+      # Backups e logs (opcional)
+      - ./backup:/var/lib/firebird/backup
+    healthcheck:
+      # $$ escapa o $ do compose para nao interpolar
+      test: ["CMD-SHELL", "isql -z -user SYSDBA -password \"$$FIREBIRD_ROOT_PASSWORD\" /var/lib/firebird/data/$$FIREBIRD_DATABASE >/dev/null 2>&1 || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+
+volumes:
+  firebird_data:
+    name: firebird_projetobd2_data
