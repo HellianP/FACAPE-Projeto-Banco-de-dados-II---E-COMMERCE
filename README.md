@@ -2,6 +2,10 @@
 
 Projeto da disciplina **Banco de Dados II** (UNIVASF) usando **Firebird 5** em container Docker.
 
+## Modelagem
+
+![Diagrama do banco](docs/diagrama.png)
+
 ## Pré-requisitos
 
 - Docker Desktop (Windows/Mac) ou Docker Engine + Compose plugin (Linux)
@@ -69,6 +73,8 @@ docker exec -it firebird-projetobd2 isql -user SYSDBA -password masterkey /var/l
 ```
 projetobd2/
 ├── docker-compose.yml    # Definição do serviço Firebird
+├── docs/                 # Diagramas e documentação visual
+│   └── diagrama.png
 ├── init/                 # Scripts SQL de inicialização (rodam só na criação do banco)
 │   └── 01-schema.sql
 └── README.md
