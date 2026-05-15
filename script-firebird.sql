@@ -1,10 +1,10 @@
 /* Sistema de E-commerce - Firebird 3.0+ */
 
-CREATE DATABASE 'ecommerce.fdb'
-    USER 'SYSDBA' PASSWORD 'masterkey'
-    DEFAULT CHARACTER SET UTF8;
+-- CREATE DATABASE 'ecommerce.fdb'
+--     USER 'SYSDBA' PASSWORD 'masterkey'
+--     DEFAULT CHARACTER SET UTF8;
 
-CONNECT 'ecommerce.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
+-- CONNECT 'ecommerce.fdb' USER 'SYSDBA' PASSWORD 'masterkey';
 
 
 CREATE TABLE cliente (
@@ -256,16 +256,16 @@ INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (2, 3);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (3, 1);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (3, 2);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (4, 4);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (5, 10);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (5, 7);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (6, 1);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (6, 2);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (7, 9);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (8, 11);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (9, 8);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (10, 12);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (11, 8);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (7, 6);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (8, 8);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (9, 5);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (10, 7);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (11, 2);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (11, 1);
-INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (12, 11);
+INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (12, 7);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (13, 2);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (14, 4);
 INSERT INTO produto_categoria (id_produto, id_categoria) VALUES (14, 2);
